@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: khulnasoft/actions/public/setup-node-pnpm@v1
+      - uses: khulnasoft/actions/public/setup-node-pnpm@main
 
       - run: pnpm i
       - run: git --no-pager diff --compact-summary --exit-code
@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: khulnasoft/actions/public/setup-node-pnpm@v1
+      - uses: khulnasoft/actions/public/setup-node-pnpm@main
 
       - run: pnpm i
 
@@ -43,7 +43,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: khulnasoft/actions/public/setup-node-pnpm@v1
+      - uses: khulnasoft/actions/public/setup-node-pnpm@main
       - run: pnpm i
 
       - env:
