@@ -1,0 +1,42 @@
+{
+    "version": "0.2",
+    "words": [
+        "camelcase",
+        "octokit",
+        "pollyjs",
+        "repos",
+        "shrinkwrap",
+        "khulnasoft"
+    ],
+    "globRoot": "./..",
+    "ignorePaths": [
+        ".git/*",
+        ".git/!{COMMIT_EDITMSG,EDITMSG}",
+        ".git/*/**",
+        "node_modules",
+        "action/",
+        "codetypo.json",
+        "fixtures/__recordings__/**",
+        "fixtures/**/*.json"
+    ],
+    "overrides": [
+        {
+            "filename": "*.har",
+            "languageId": "json",
+            "dictionaries": [
+                "http",
+                "node",
+                "typescript"
+            ],
+            "words": [
+                "etag",
+                "maxage",
+                "ratelimit",
+                "nosniff"
+            ]
+        }
+    ],
+    "enableFiletypes": [
+        "shellscript"
+    ]
+}

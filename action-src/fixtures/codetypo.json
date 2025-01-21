@@ -1,0 +1,15 @@
+{
+    "version": "0.2",
+    "words": ["camelcase", "octokit", "pollyjs", "repos", "shrinkwrap", "khulnasoft"],
+    "ignorePaths": ["node_modules", "action/", "codetypo.json", "__recordings__", "**/*.json"],
+    "overrides": [
+        {
+            "filename": "*.har",
+            "languageId": "json",
+            "dictionaries": ["http", "node", "typescript"],
+            "words": ["etag", "maxage", "ratelimit", "nosniff"]
+        }
+    ],
+    "enableFiletypes": ["shellscript"],
+    "import": ["../codetypo.json"]
+}

@@ -1,0 +1,14 @@
+import:
+  - "../../codetypo.json"
+files:
+  - "*.ts"
+# codetypo:disable
+flagWords:
+  - blacklist->denylist
+  - blacklists->denylists
+  - whitelist->allowlist
+  - whitelists->allowlists
+suggestWords:
+  - colour->color
+  - colours->colors
+# codetypo:enable

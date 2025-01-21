@@ -1,0 +1,14 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "extends": "@tsconfig/node20/tsconfig.json",
+    "compilerOptions": {
+        "skipLibCheck": true,
+        "noUnusedParameters": true,
+        "noUnusedLocals": true,
+        "types": ["node"],
+        "outDir": "dist",
+        "rootDir": "./src"
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules"]
+}

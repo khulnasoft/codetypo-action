@@ -1,0 +1,20 @@
+{
+  "name": "action",
+  "version": "0.0.0",
+  "private": true,
+  "packageManager": "npm@10.1.0",
+  "type": "module",
+  "main": "./lib/main_root.cjs",
+  "bundledDependencies": [
+    "@codetypo/codetypo-bundled-dicts"
+  ],
+  "dependencies": {
+    "@codetypo/codetypo-bundled-dicts": "github:khulnasoft/codetypo#main"
+  },
+  "files": [
+    "lib"
+  ],
+  "engines": {
+    "node": ">=20"
+  }
+}

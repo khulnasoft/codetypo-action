@@ -1,0 +1,44 @@
+{
+  "name": "action-src",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node ./build.mjs",
+    "build:tsc": "tsc -p .",
+    "clean-build": "pnpm clean && pnpm build",
+    "clean": "shx rm -rf ../action/lib dist",
+    "prepublishOnly": "pnpm build",
+    "smoke-test-push": "env-cmd -f ./fixtures/push.json node ./action/lib/main_root.cjs",
+    "smoke-test": "env-cmd -f ./fixtures/pull_request.json node ./action/lib/main_root.cjs",
+    "test": "vitest run",
+    "coverage": "vitest run --coverage"
+  },
+  "bin": {
+    "build": "./build.mjs"
+  },
+  "bundledDependencies": [
+    "@codetypo/codetypo-bundled-dicts"
+  ],
+  "devDependencies": {
+    "esbuild": "^0.24.2"
+  },
+  "dependencies": {
+    "@actions/core": "^1.11.1",
+    "@actions/github": "^6.0.0",
+    "@codetypo/codetypo-bundled-dicts": "github:khulnasoft/codetypo#main",
+    "@codetypo/codetypo-types": "github:khulnasoft/codetypo#main",
+    "@octokit/webhooks-types": "^7.6.1",
+    "@types/node": "^20.17.14",
+    "codetypo": "github:khulnasoft/codetypo#main",
+    "codetypo-glob": "github:khulnasoft/codetypo#main",
+    "vscode-uri": "^3.0.8"
+  },
+  "files": [
+    "lib",
+    "build.mjs"
+  ],
+  "engines": {
+    "node": ">=20"
+  }
+}

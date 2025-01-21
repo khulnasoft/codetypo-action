@@ -1,0 +1,13 @@
+{
+    "ignorePaths": [
+        "**/coverage/**",
+        "**/.git/*/**",
+        "**/.git/!{COMMIT_EDITMSG,EDITMSG}",
+        "node_modules",
+        "__recordings__",
+        "__snapshots__"
+    ],
+    "useGitignore": true,
+    "ignoreWords": ["EDITMSG", "pollyjs"],
+    "words": ["lcov", "outfile"]
+}

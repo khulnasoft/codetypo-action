@@ -1,0 +1,95 @@
+name: "codetypo-action"
+description: "Spell Checker for Code"
+author: "Street Side Software <info@khulnasoft.nl>"
+inputs:
+  files:
+    description: |
+      Define glob patterns to filter the files to be checked. Use a new line between patterns to define multiple patterns.
+      The default is to check ALL files that were changed in in the pull_request or push.
+      Note: `ignorePaths` defined in codetypo.json still apply.
+    required: false
+  incremental_files_only:
+    description: >
+      Limit the files checked to the ones in the pull request or push.
+    default: "true"
+    required: false
+  config:
+    description: >
+      Path to CodeTypo configuration file, i.e. `codetypo.json` or `codetypo.config.yaml`.
+      If not provided, the spell checker will search for the nearest configuration file.
+    required: false
+  root:
+    description: >
+      The point in the directory tree to start spell checking.
+    required: false
+  inline:
+    description: >
+      Notification level to use with inline reporting of spelling errors.
+      Allowed values are: warning, error, none
+    default: warning
+    required: false
+  treat_flagged_words_as_errors:
+    description: >
+      Treat flagged / forbidden words as errors.
+      Allowed values are: true, false
+    default: "false"
+  strict:
+    description: |
+      Determines if the action should be failed if any spelling issues are found.
+      Allowed values are: true, false
+    default: "true"
+    required: false
+  suggestions:
+    description: >
+      Generate Spelling suggestions.
+    default: "false"
+    required: false
+  verbose:
+    description: |
+      Increase the log output to include progress.
+      Allowed values are: true, false
+    default: "false"
+    required: false
+  check_dot_files:
+    description: |
+      Check files and directories starting with `.`.
+      - "true" - glob searches will match against `.dot` files.
+      - "false" - `.dot` files will NOT be checked.
+      - "explicit" - glob patterns can match explicit `.dot` patterns.
+    default: "explicit"
+    required: false
+  use_codetypo_files:
+    description: |
+      Use the `files` setting from the CodeTypo configuration file.
+      - "true" - Overrides the `input.files` setting.
+      - "false" - Use the `input.files` setting.
+    default: "false"
+    required: false
+
+outputs:
+  success:
+    description: |
+      "true" if no spelling issues were found, otherwise "false".
+  number_of_files_checked:
+    description: |
+      The actual number of files that were checked.
+  number_of_issues:
+    description: |
+      The number of issues found.
+  number_of_files_with_issues:
+    description: |
+      The number of files that had issues.
+  files_with_issues:
+    description: |
+      List of files with issues. Use `fromJSON()` to decode.
+      The files are relative to the repository root.
+  results:
+    description: |
+      The JSON encoded results.
+
+runs:
+  using: "node20"
+  main: "./action/lib/main_root.cjs"
+branding:
+  icon: "code"
+  color: "green"

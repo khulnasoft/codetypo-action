@@ -1,0 +1,63 @@
+{
+  "name": "codetypo-action",
+  "version": "6.10.0",
+  "description": "GitHub Action: Check Spelling",
+  "private": true,
+  "packageManager": "pnpm@9.4.0",
+  "type": "module",
+  "scripts": {
+    "prepare": "pnpm run build",
+    "build": "pnpm build:src && pnpm build:action",
+    "build:action": "cd action && npm i",
+    "build:src": "pnpm -r run build",
+    "clean": "pnpm clean:action && pnpm clean:src",
+    "clean:src": "pnpm -r --filter ./action-src clean",
+    "clean:action": "shx rm -rf action/node_modules action/package-lock.json",
+    "clean-build": "pnpm -r --filter ./action-src clean-build",
+    "lint": "eslint . --fix && prettier . -w",
+    "smoke-test-push": "env-cmd -f ./fixtures/push.json node ./action/lib/main_root.js",
+    "smoke-test": "env-cmd -f ./fixtures/pull_request.json node ./action/lib/main_root.js",
+    "test": "pnpm -r --filter ./action-src test",
+    "test-with-auth": "GITHUB_TOKEN=$(gh auth token) pnpm test",
+    "coverage": "pnpm -r --filter ./action-src coverage",
+    "update-packages": "pnpm up -r -w"
+  },
+  "repository": "git+https://github.com/khulnasoft/codetypo-action.git",
+  "keywords": [
+    "GitHub",
+    "codetypo",
+    "Action",
+    "codetypo",
+    "spell",
+    "spelling",
+    "checker"
+  ],
+  "author": "Jason Dent <jason@khulnasoft.nl>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/khulnasoft/codetypo-action/issues"
+  },
+  "homepage": "https://github.com/khulnasoft/codetypo-action#readme",
+  "devDependencies": {
+    "@eslint/js": "^9.18.0",
+    "@tsconfig/node20": "^20.1.4",
+    "@vitest/coverage-istanbul": "^2.1.8",
+    "env-cmd": "^10.1.0",
+    "eslint": "^9.18.0",
+    "eslint-plugin-n": "^17.15.1",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "prettier": "^3.4.2",
+    "shx": "^0.3.4",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.20.0",
+    "vitest": "^2.1.8"
+  },
+  "pnpm": {
+    "overrides": {
+      "undici": "^5.28.5"
+    }
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
