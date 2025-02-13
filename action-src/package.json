@@ -29,7 +29,7 @@
     "@codetypo/codetypo-bundled-dicts": "github:khulnasoft/codetypo#main",
     "@codetypo/codetypo-types": "github:khulnasoft/codetypo#main",
     "@octokit/webhooks-types": "^7.6.1",
-    "@types/node": "^20.17.14",
+    "@types/node": "^22.13.2",
     "codetypo": "github:khulnasoft/codetypo#main",
     "codetypo-glob": "github:khulnasoft/codetypo#main",
     "vscode-uri": "^3.0.8"
